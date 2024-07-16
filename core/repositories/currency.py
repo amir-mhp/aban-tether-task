@@ -1,5 +1,5 @@
 from core.entities.currency import CurrencyEntity
-from core.utils import is_valid_uuid
+from core.utils.utils import is_valid_uuid
 
 
 class CurrencyRepository:

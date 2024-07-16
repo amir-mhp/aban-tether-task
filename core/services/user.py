@@ -6,7 +6,7 @@ from nameko import config
 
 from core import response_schemas
 from core.entities.user import UserEntity
-from core.hashers import make_password, check_password
+from core.utils.hashers import make_password, check_password
 from core.repositories.user import UserRepository
 
 

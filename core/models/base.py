@@ -5,7 +5,7 @@ from sqlalchemy import DateTime, Column, TypeDecorator, CHAR, MetaData, String
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.ext.declarative import declarative_base
 
-from core.utils import now
+from core.utils.utils import now
 
 meta = MetaData(
     naming_convention={

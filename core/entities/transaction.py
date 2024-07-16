@@ -3,7 +3,7 @@ import enum
 import typing
 from dataclasses import dataclass, field
 
-from core.utils import now
+from core.utils.utils import now
 
 
 @dataclass
