@@ -16,8 +16,8 @@ class UserRepository(BaseStoreRepository):
             self,
             entity: UserEntity,
     ):
-        with self as session:
-            session.add(entity)
+        with self:
+            self._sqlalchemy_store.session.add(entity)
 
     def get_user_by_phone(self, phone):
         return self._sqlalchemy_store.session.query(UserEntity).filter(

@@ -45,7 +45,7 @@ class CoreController:
         response = user_service.create_user(
             data=data,
         )
-        return response_schemas.UserSchema().dumps(response)
+        return 201, response_schemas.UserSchema().dumps(response)
 
     @http('POST', '/tokens')
     def authenticate(self, request):
