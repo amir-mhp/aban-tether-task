@@ -104,7 +104,7 @@ class TransactionService:
                 for transaction in transactions:
                     transaction_ids.append(transaction.id)
 
-                    # Maybe total amount updated!
+                    # Recalculate the total amount if necessary.
                     total_amount += transaction.amount
 
                 repo.update_transactions_into_settling(ids=transaction_ids)
