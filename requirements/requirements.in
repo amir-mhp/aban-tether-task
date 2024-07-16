@@ -5,4 +5,5 @@ alembic~=1.4.3
 marshmallow~=3.6.0
 pytest~=6.2.0
 pytest-xdist~=2.2.0
+walrus~=0.9.1
 coverage~=4.5.3
