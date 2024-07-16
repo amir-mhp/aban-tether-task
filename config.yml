@@ -1,0 +1,28 @@
+AMQP_URI: amqp://${RABBIT_USER:guest}:${RABBIT_PASSWORD:guest}@${RABBIT_HOST:localhost}:${RABBIT_PORT:5672}/
+
+DB_URIS:
+  'core:Base': postgresql+psycopg2://${DB_USER:postgres}:${DB_PASSWORD:password}@${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:shop}
+
+LOGGING:
+  version: 1
+  formatters:
+    full:
+      format: '%(levelname)s [%(asctime)s] [%(name)s.%(funcName)s] %(message)s'
+  handlers:
+    console:
+      class: logging.StreamHandler
+      formatter: full
+  loggers:
+    core:
+      level: DEBUG
+      handlers: [ console ]
+      propagate: no
+    nameko:
+      level: ERROR
+      handlers: [ console ]
+      propagate: no
+
+REDIS:
+  host: ${REDIS_HOST:redis}
+  port: ${REDIS_PORT:6379}
+  db: ${REDIS_DB:0}

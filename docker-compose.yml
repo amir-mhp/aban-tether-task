@@ -1,0 +1,57 @@
+version: '3'
+services:
+  # ---- Dependencies ----
+  postgres:
+    image: postgres:14.2
+    environment:
+      POSTGRES_USER: core
+      POSTGRES_PASSWORD: core
+      POSTGRES_DB: core
+    ports:
+      - '2345:5432'
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7.0
+    command: --appendonly yes
+    restart: always
+    volumes:
+      - redis-data:/data
+
+  rabbit:
+    image: rabbitmq:3.12.12-management-alpine
+    restart: always
+    volumes:
+      - rabbit-data:/var/lib/rabbitmq
+
+  # ---- Microservices ----
+
+  core:
+    image: abantether/core:latest
+    depends_on:
+      - postgres
+    ports:
+      - '0.0.0.0:8005:8000'
+    environment:
+      DB_USER: 'core'
+      DB_PASSWORD: 'core'
+      DB_HOST: 'postgres'
+      DB_PORT: '5432'
+      DB_NAME: 'core'
+      REDIS_HOST: 'redis'
+      REDIS_PORT: '6379'
+      REDIS_DB: '0'
+      RABBIT_PASSWORD: 'guest'
+      RABBIT_USER: 'guest'
+      RABBIT_HOST: 'rabbit'
+      RABBIT_PORT: '5672'
+
+    restart: always
+    volumes:
+      - ./:/app/
+
+volumes:
+  db-data:
+  redis-data:
+  rabbit-data:
