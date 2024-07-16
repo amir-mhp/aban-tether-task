@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "40e47e1b-c295-4014-9878-16cdd3a38a27",
+		"name": "AbanTether",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14463317",
+		"_collection_link": "https://sweetchat.postman.co/workspace/My-Workspace~187b4ee6-569c-4092-8028-d3b1f8b2c167/collection/14463317-40e47e1b-c295-4014-9878-16cdd3a38a27?action=share&source=collection_link&creator=14463317"
+	},
+	"item": [
+		{
+			"name": "Heath",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Url}}/health",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phone\" : \"091233519611\",\n    \"password\" : \"salam\",\n    \"first_name\": \"amir\",\n    \"last_name\" : \"mhp\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Url}}/users",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phone\" : \"09123351961\",\n    \"password\" : \"salam\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Url}}/tokens",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"tokens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Currencies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Url}}/currencies",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"currencies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"currency_id\" : \"bb523ccb-40ce-4f18-8923-31ec9805af68\",\n    \"count\" : \"9\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Url}}/transactions",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "848bf091cbe14e46a598739ef6eb0c1b",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Url",
+			"value": "localhost:8005",
+			"type": "string"
+		}
+	]
+}
